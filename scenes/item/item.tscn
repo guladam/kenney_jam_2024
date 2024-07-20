@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2ucirgfmaj8j"]
+
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="1_5uan0"]
+[ext_resource type="Texture2D" uid="uid://ymi0rabpy8sr" path="res://assets/tilemap_packed.png" id="1_s365a"]
+
+[sub_resource type="Curve" id="Curve_hwc4r"]
+_data = [Vector2(0, 0.615385), 0.0, 0.0, 0, 0, Vector2(0.238866, 1), 0.0, 0.0, 0, 0, Vector2(0.753036, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.615385), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_j426o"]
+offsets = PackedFloat32Array(0, 0.0676328, 0.932367, 1)
+colors = PackedColorArray(0.568627, 0.415686, 0.384314, 0, 0.84855, 0.738828, 0.715756, 1, 0.897023, 0.749939, 0.715733, 1, 0.313726, 0.231373, 0.231373, 0.47451)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvbxt"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qg7a2"]
+radius = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxgs3"]
+font_size = 21
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.486275)
+
+[node name="Item" type="Area2D" groups=["items"]]
+script = ExtResource("1_5uan0")
+
+[node name="Visuals" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Icon" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_s365a")
+region_enabled = true
+region_rect = Rect2(112, 128, 16, 16)
+
+[node name="Line" type="Node2D" parent="."]
+
+[node name="ConnectionLine" type="Line2D" parent="Line"]
+unique_name_in_owner = true
+width = 8.0
+width_curve = SubResource("Curve_hwc4r")
+gradient = SubResource("Gradient_j426o")
+texture_mode = 2
+
+[node name="LineConnector" type="Area2D" parent="Line"]
+unique_name_in_owner = true
+position = Vector2(32, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line/LineConnector"]
+shape = SubResource("CircleShape2D_xvbxt")
+debug_color = Color(0.780582, 0.138805, 0.42825, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qg7a2")
+
+[node name="ConnectionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 14.0
+offset_bottom = -18.0
+text = "1"
+label_settings = SubResource("LabelSettings_oxgs3")
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -30.0
+offset_top = -16.0
+offset_right = -20.0
+offset_bottom = 16.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="area_entered" from="Line/LineConnector" to="." method="_on_line_connector_area_entered"]

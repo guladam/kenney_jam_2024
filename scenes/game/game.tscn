@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://37rfek423ie5"]
+
+[ext_resource type="PackedScene" uid="uid://d2ucirgfmaj8j" path="res://scenes/item/item.tscn" id="1_32p43"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_32p43")]
+position = Vector2(81, 71)
+
+[node name="Item2" parent="." instance=ExtResource("1_32p43")]
+position = Vector2(132, 143)
+
+[node name="Item3" parent="." instance=ExtResource("1_32p43")]
+position = Vector2(177, 75)
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.868652, 0.746631, 0.86987, 0.490196)

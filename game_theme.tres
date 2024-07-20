@@ -1,0 +1,56 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://flfybsclvkup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awfx5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syiim"]
+bg_color = Color(0.266667, 0.172549, 0.113725, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.910404, 0.84695, 0.857942, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn077"]
+bg_color = Color(0.227459, 0.14372, 0.0914315, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.910404, 0.84695, 0.857942, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwljp"]
+bg_color = Color(0.203659, 0.128162, 0.0778218, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0.910404, 0.84695, 0.857942, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0r5v"]
+bg_color = Color(0.186736, 0.081131, 0.0504855, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.152941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f10da"]
+bg_color = Color(0.514847, 0.324201, 0.23769, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.152941)
+
+[resource]
+default_font_size = 12
+Button/styles/focus = SubResource("StyleBoxEmpty_awfx5")
+Button/styles/hover = SubResource("StyleBoxFlat_syiim")
+Button/styles/normal = SubResource("StyleBoxFlat_wn077")
+Button/styles/pressed = SubResource("StyleBoxFlat_rwljp")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_j0r5v")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_f10da")
