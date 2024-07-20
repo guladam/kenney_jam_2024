@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsk2uy7at573a"]
+
+[ext_resource type="Script" path="res://scenes/character/connection_ui.gd" id="1_85t7c"]
+[ext_resource type="Texture2D" uid="uid://ymi0rabpy8sr" path="res://assets/tilemap_packed.png" id="1_svuh0"]
+[ext_resource type="Resource" uid="uid://dctn7056bqp5x" path="res://units/warrior/warrior_stats.tres" id="2_p1gkm"]
+[ext_resource type="LabelSettings" uid="uid://ctey4bsvnmd1d" path="res://assets/label_ui.tres" id="2_tsrcu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tk25"]
+atlas = ExtResource("1_svuh0")
+region = Rect2(7, 17, 8, 8)
+
+[node name="ConnectionUI" type="HBoxContainer"]
+script = ExtResource("1_85t7c")
+player_stats = ExtResource("2_p1gkm")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 4.0
+offset_right = 17.0
+offset_bottom = 28.0
+rotation = -0.785398
+pivot_offset = Vector2(2, 12)
+color = Color(0.738248, 0.61721, 0.561013, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+texture = SubResource("AtlasTexture_2tk25")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_2tk25")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "99"
+label_settings = ExtResource("2_tsrcu")

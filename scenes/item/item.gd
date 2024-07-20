@@ -1,12 +1,18 @@
 class_name Item
 extends Area2D
 
+signal connected_to_item
+signal disconnected_from_item
+
 static var connections: Dictionary
 static var dragging: Item = null
 
+@export var item_stats: ItemStats : set = _set_item_stats
+
+@onready var icon: Sprite2D = %Icon
 @onready var connection_line: Line2D = %ConnectionLine
 @onready var line_connector: Area2D = %LineConnector
-@onready var start_label: Label = %StartLabel
+@onready var start_icon: Node2D = %StartIcon
 @onready var progress_bar: ProgressBar = %ProgressBar
 @onready var item_timer: Timer = $ItemTimer
 @onready var spark_timer: Timer = $SparkTimer
@@ -39,12 +45,22 @@ func activate() -> void:
 	animation_player.play("active")
 
 
+func hide_start_symbol() -> void:
+	start_icon.hide()
+
+
 func _is_dragging() -> bool:
 	return dragging and dragging == self
 
 
-func hide_start_symbol() -> void:
-	start_label.hide()
+func _set_item_stats(value: ItemStats) -> void:
+	item_stats = value
+	
+	if not icon or not item_timer:
+		return
+	
+	icon.region_rect.position = item_stats.icon_coordinates * 16
+	item_timer.wait_time = item_stats.activation_time
 
 
 func _connect(item: Item) -> void:
@@ -53,6 +69,7 @@ func _connect(item: Item) -> void:
 	connection_line.points[1] = to_local(item.global_position)
 	dragging = null
 	_update_start_point()
+	connected_to_item.emit()
 
 
 func _disconnect() -> void:
@@ -63,12 +80,17 @@ func _disconnect() -> void:
 	if connected_item:
 		connected_item = null
 		_update_start_point()
+		disconnected_from_item.emit()
 
 
 func _update_start_point() -> void:
 	get_tree().call_group("items", "hide_start_symbol")
+	
+	if connections.is_empty():
+		return
+	
 	var first: Item = connections.keys()[0] as Item
-	first.start_label.show()
+	first.start_icon.show()
 
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -88,7 +110,7 @@ func _on_line_connector_area_entered(item: Item) -> void:
 
 
 func _on_item_timer_timeout() -> void:
-	print("%s do da thing!" % name)
+	item_stats.activate()
 	animation_player.play("RESET")
 	progress_bar.hide()
 	

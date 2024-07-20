@@ -1,17 +1,42 @@
+class_name ItemHandler
 extends Node2D
 
+const ITEM = preload("res://scenes/item/item.tscn")
 
-func _ready() -> void:
-	spawn_items(preload("res://characters/warrior/warrior_items.tscn"))
-	#await get_tree().create_timer(10).timeout
-	#get_child(0).activate()
+@export var player_stats: PlayerStats
 
 
-func spawn_items(items: PackedScene) -> void:
-	var instance := items.instantiate()
+func spawn_items() -> void:
+	var instance := player_stats.item_slots.instantiate()
+	var i := 0
 	
-	for item: Item in instance.get_children():
-		item.owner = null
-		item.reparent(self)
+	for marker: Node2D in instance.get_children():
+		var item := ITEM.instantiate() as Item
+		item.global_position = marker.global_position
+		item.connected_to_item.connect(_on_item_connected_to_item)
+		item.disconnected_from_item.connect(_on_item_disconnected_from_item)
+		add_child(item)
+		item.item_stats = player_stats.starter_items[i]
+		item.item_stats.initialize()
+		i += 1
 	
 	instance.queue_free()
+
+
+func disable_connecting() -> void:
+	for item: Item in get_children():
+		item.enabled = false
+
+
+func _on_item_connected_to_item() -> void:
+	if not player_stats:
+		return
+	
+	player_stats.connections -= 1
+
+
+func _on_item_disconnected_from_item() -> void:
+	if not player_stats:
+		return
+	
+	player_stats.connections += 1

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dpmv0sxnjigk1"]
+
+[ext_resource type="Script" path="res://items/scripts/player_attack.gd" id="1_yubbd"]
+
+[resource]
+script = ExtResource("1_yubbd")
+upgrades = Array[int]([])
+icon_coordinates = Vector2(9, 9)
+activation_time = 2.0

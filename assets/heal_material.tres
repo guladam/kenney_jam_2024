@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b0ea4152jc8qt"]
+
+[ext_resource type="Shader" path="res://assets/heal.gdshader" id="1_1xyjo"]
+
+[resource]
+shader = ExtResource("1_1xyjo")

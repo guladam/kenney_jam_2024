@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=4 format=3 uid="uid://dctn7056bqp5x"]
+
+[ext_resource type="PackedScene" uid="uid://b42u2ebc5cn6g" path="res://units/warrior/warrior_item_slots.tscn" id="1_kg5j6"]
+[ext_resource type="Script" path="res://units/player_stats.gd" id="1_qyn7j"]
+[ext_resource type="Resource" uid="uid://dpmv0sxnjigk1" path="res://items/warrior_hammer.tres" id="3_sbt3m"]
+
+[resource]
+script = ExtResource("1_qyn7j")
+starter_items = Array[Resource("res://items/item_stats.gd")]([ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m")])
+max_connections = 4
+item_slots = ExtResource("1_kg5j6")
+upgrades = 0
+health = 4
+armor = 0
+sprite_coordinates = Vector2(0, 8)
+flip_h = false

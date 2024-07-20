@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://b07w5gaxvrrl5"]
+
+[ext_resource type="Script" path="res://units/enemy_stats.gd" id="1_c71df"]
+
+[resource]
+script = ExtResource("1_c71df")
+items = Array[Resource("res://items/item_stats.gd")]([])
+health = 3
+armor = 0
+sprite_coordinates = Vector2(4, 10)
+flip_h = false
