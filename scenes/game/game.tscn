@@ -1,16 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://37rfek423ie5"]
+[gd_scene load_steps=18 format=3 uid="uid://37rfek423ie5"]
 
 [ext_resource type="PackedScene" uid="uid://bppfkbdcaqec" path="res://scenes/item_handler/item_handler.tscn" id="1_g2qg0"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_qvmh4"]
 [ext_resource type="Resource" uid="uid://212y57bqiq22" path="res://levels/level1.tres" id="2_4kit3"]
-[ext_resource type="Resource" uid="uid://b07w5gaxvrrl5" path="res://units/rat/rat_stats.tres" id="3_8yqdh"]
 [ext_resource type="PackedScene" uid="uid://ce8v8364r6jv3" path="res://scenes/character/character.tscn" id="3_ntoxo"]
 [ext_resource type="Script" path="res://scenes/game/ui.gd" id="4_nylyo"]
 [ext_resource type="PackedScene" uid="uid://c3yiljg7spj3h" path="res://scenes/character/stats_ui.tscn" id="4_vxumi"]
 [ext_resource type="PackedScene" uid="uid://dsk2uy7at573a" path="res://scenes/character/connection_ui.tscn" id="5_2xrgt"]
 [ext_resource type="Resource" uid="uid://dctn7056bqp5x" path="res://units/warrior/warrior_stats.tres" id="5_3yivu"]
+[ext_resource type="PackedScene" uid="uid://cjudnju8uonna" path="res://scenes/enemy_ai/enemy_ai.tscn" id="7_j6eg7"]
 [ext_resource type="Texture2D" uid="uid://c2fy4hmmcaqbc" path="res://assets/background.png" id="9_yptqb"]
 [ext_resource type="Texture2D" uid="uid://ymi0rabpy8sr" path="res://assets/tilemap_packed.png" id="10_42gxs"]
+[ext_resource type="PackedScene" uid="uid://dwpx8ydhy46ac" path="res://scenes/game_over/game_over.tscn" id="12_62bwl"]
+[ext_resource type="PackedScene" uid="uid://b8kpvx46o6ocw" path="res://scenes/game_won/game_won.tscn" id="13_h3jsp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ei01d"]
 line_spacing = 1.0
@@ -32,7 +34,6 @@ region = Rect2(7, 17, 8, 8)
 script = ExtResource("1_qvmh4")
 level = ExtResource("2_4kit3")
 player_stats = ExtResource("5_3yivu")
-enemy_stats = ExtResource("3_8yqdh")
 
 [node name="ItemHandler" parent="." instance=ExtResource("1_g2qg0")]
 
@@ -48,6 +49,10 @@ position = Vector2(296, 114)
 position = Vector2(344, 114)
 attack_target_position = NodePath("../AttackPosition")
 stats = null
+
+[node name="EnemyAI" parent="." instance=ExtResource("7_j6eg7")]
+visible = false
+position = Vector2(344, 64)
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 script = ExtResource("4_nylyo")
@@ -218,6 +223,7 @@ mouse_filter = 2
 
 [node name="HP" type="TextureRect" parent="GameUI/Tutorial2/MarginContainer/Icons"]
 custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
 offset_left = 6.0
 offset_top = 46.0
 offset_right = 30.0
@@ -228,6 +234,7 @@ stretch_mode = 5
 
 [node name="BLK" type="TextureRect" parent="GameUI/Tutorial2/MarginContainer/Icons"]
 custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
 offset_left = 6.0
 offset_top = 78.0
 offset_right = 30.0
@@ -275,6 +282,14 @@ texture = SubResource("AtlasTexture_pwyos")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
+
+[node name="GameOver" parent="GameUI" instance=ExtResource("12_62bwl")]
+unique_name_in_owner = true
+visible = false
+
+[node name="GameWon" parent="GameUI" instance=ExtResource("13_h3jsp")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dkllk6n1iw7q6"]
+
+[ext_resource type="Script" path="res://items/scripts/enemy_attack.gd" id="1_ogwyp"]
+
+[resource]
+script = ExtResource("1_ogwyp")
+damage = 2
+upgrades = Array[int]([])
+icon_coordinates = Vector2(8, 8)
+activation_time = 1.5

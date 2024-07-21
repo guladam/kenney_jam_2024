@@ -1,6 +1,7 @@
 class_name Character
 extends Node2D
 
+signal died
 signal attack_arrived
 signal attack_finished
 
@@ -66,6 +67,7 @@ func _set_stats(value: Stats) -> void:
 	if stats and visuals:
 		visuals.region_rect.position = stats.sprite_coordinates * 16
 		visuals.flip_h = stats.flip_h
+		stats.health_depleted.connect(func(): died.emit())
 
 
 func _on_attack_arrived() -> void:

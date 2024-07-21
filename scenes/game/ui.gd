@@ -9,6 +9,8 @@ extends CanvasLayer
 @onready var start_fight_button: Button = %StartFightButton
 @onready var tutorial_1: PanelContainer = %Tutorial1
 @onready var tutorial_2: PanelContainer = %Tutorial2
+@onready var game_over: PanelContainer = %GameOver
+@onready var game_won: PanelContainer = %GameWon
 
 
 func setup_ui(p_stats: PlayerStats, e_stats: EnemyStats) -> void:
@@ -18,6 +20,17 @@ func setup_ui(p_stats: PlayerStats, e_stats: EnemyStats) -> void:
 	start_fight_button.disabled = true
 	
 	player_stats.stats_changed.connect(_on_player_stats_changed)
+
+
+func show_tutorial() -> void:
+	tutorial_1.show()
+
+
+func show_game_won() -> void:
+	game_won.show()
+
+func show_game_over() -> void:
+	game_over.show()
 
 
 func _on_player_stats_changed() -> void:

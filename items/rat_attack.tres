@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://fg4k74vwwiln"]
+
+[ext_resource type="Script" path="res://items/scripts/enemy_attack.gd" id="1_sdtfn"]
+
+[resource]
+script = ExtResource("1_sdtfn")
+damage = 1
+upgrades = Array[int]([])
+icon_coordinates = Vector2(7, 8)
+activation_time = 0.75

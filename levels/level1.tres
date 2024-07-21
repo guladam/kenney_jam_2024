@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Level" load_steps=2 format=3 uid="uid://212y57bqiq22"]
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://212y57bqiq22"]
 
+[ext_resource type="Resource" uid="uid://b07w5gaxvrrl5" path="res://units/rat/rat_stats.tres" id="1_5jlrc"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_q200u"]
 
 [resource]
 script = ExtResource("1_q200u")
-difficulty = 0
-tutorial = true
+difficulty = 1
+enemy = ExtResource("1_5jlrc")
+tutorial = false

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjudnju8uonna"]
+
+[ext_resource type="Script" path="res://scenes/enemy_ai/enemy_ai.gd" id="1_bt4rw"]
+[ext_resource type="PackedScene" uid="uid://kq2w2jlbikqt" path="res://scenes/item/enemy_item.tscn" id="1_mjjsd"]
+
+[node name="EnemyAI" type="Node2D"]
+script = ExtResource("1_bt4rw")
+
+[node name="CurrentEnemyItem" parent="." instance=ExtResource("1_mjjsd")]
+
+[node name="NextEnemyItem" parent="." instance=ExtResource("1_mjjsd")]
+position = Vector2(0, -32)
+scale = Vector2(0.5, 0.5)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
