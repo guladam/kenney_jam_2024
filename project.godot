@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneTransition="*res://scenes/menu/scene_transition.tscn"
 EventBus="*res://global/event_bus.gd"
+SFXPlayer="*res://global/sfx_player.tscn"
 
 [display]
 
