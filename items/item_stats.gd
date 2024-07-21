@@ -12,7 +12,6 @@ var enemy: Character
 func initialize() -> void:
 	player = _get_player()
 	enemy = _get_enemy()
-	# TODO implement upgrades here
 
 
 func activate() -> void:

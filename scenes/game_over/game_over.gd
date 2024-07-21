@@ -1,10 +1,12 @@
 extends PanelContainer
 
+signal restart_button_pressed
+
 const MENU = "res://scenes/menu/menu.tscn"
 
 
 func _on_restart_button_pressed() -> void:
-	EventBus.level_restart_button_pressed.emit()
+	restart_button_pressed.emit()
 
 
 func _on_main_menu_pressed() -> void:

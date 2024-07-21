@@ -113,14 +113,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -44.0
+offset_top = -51.0
 offset_right = 155.0
-offset_bottom = 13.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Made for Kenney Jam 2024
 Packs used:
-- Tiny Dungeon"
+- Tiny Dungeon
+- 1-Bit Input Prompts Pixel
+- Cursor Pixel"
 
 [node name="YouTubeChannel" type="Label" parent="."]
 layout_mode = 1

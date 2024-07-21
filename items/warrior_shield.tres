@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b3ahffjwod1cc"]
+
+[ext_resource type="Script" path="res://items/scripts/player_armor.gd" id="1_swbv0"]
+
+[resource]
+script = ExtResource("1_swbv0")
+amount = 2
+upgrades = Array[int]([])
+icon_coordinates = Vector2(5, 8)
+activation_time = 1.5

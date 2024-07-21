@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="Kenney Jam 2024"
-run/main_scene="res://scenes/game/game.tscn"
+run/main_scene="res://scenes/run/run.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SceneTransition="*res://scenes/menu/scene_transition.tscn"
-EventBus="*res://global/event_bus.gd"
 SFXPlayer="*res://global/sfx_player.tscn"
 
 [display]
@@ -27,6 +26,8 @@ window/size/viewport_width=384
 window/size/viewport_height=216
 window/size/mode=2
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assets/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(11, 7)
 
 [gui]
 

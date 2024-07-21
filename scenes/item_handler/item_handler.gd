@@ -7,6 +7,8 @@ const ITEM = preload("res://scenes/item/item.tscn")
 
 
 func spawn_items() -> void:
+	Item.connections = {}
+	
 	var instance := player_stats.item_slots.instantiate()
 	var i := 0
 	
@@ -16,7 +18,8 @@ func spawn_items() -> void:
 		item.connected_to_item.connect(_on_item_connected_to_item)
 		item.disconnected_from_item.connect(_on_item_disconnected_from_item)
 		add_child(item)
-		item.item_stats = player_stats.starter_items[i]
+		item.item_stats = player_stats.items[i]
+		print("initialized?")
 		item.item_stats.initialize()
 		i += 1
 	

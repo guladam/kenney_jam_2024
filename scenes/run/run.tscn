@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr4r0ad7f3bp5"]
+
+[ext_resource type="Script" path="res://scenes/run/run.gd" id="1_jvo1u"]
+[ext_resource type="PackedScene" uid="uid://dwpx8ydhy46ac" path="res://scenes/game_over/game_over.tscn" id="1_v0tsm"]
+[ext_resource type="Resource" uid="uid://212y57bqiq22" path="res://levels/level1.tres" id="2_665m8"]
+[ext_resource type="PackedScene" uid="uid://b8kpvx46o6ocw" path="res://scenes/game_won/game_won.tscn" id="2_flyma"]
+[ext_resource type="Resource" uid="uid://dctn7056bqp5x" path="res://units/warrior/warrior_stats.tres" id="3_ni3sm"]
+[ext_resource type="PackedScene" uid="uid://chtae2x85bj7u" path="res://scenes/upgrade_selector/upgrade_selector.tscn" id="6_815ls"]
+
+[node name="Run" type="Node2D"]
+script = ExtResource("1_jvo1u")
+levels = Array[Resource("res://levels/level.gd")]([ExtResource("2_665m8"), ExtResource("2_665m8")])
+starter_player_stats = ExtResource("3_ni3sm")
+
+[node name="CurrentLevel" type="Node2D" parent="."]
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+[node name="RunUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="GameOver" parent="RunUI" instance=ExtResource("1_v0tsm")]
+unique_name_in_owner = true
+visible = false
+
+[node name="GameWon" parent="RunUI" instance=ExtResource("2_flyma")]
+unique_name_in_owner = true
+visible = false
+
+[node name="UpgradeSelector" parent="RunUI" instance=ExtResource("6_815ls")]
+unique_name_in_owner = true
+visible = false
+
+[node name="LevelOverTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.25
+one_shot = true
+
+[connection signal="restart_button_pressed" from="RunUI/GameOver" to="." method="_on_game_over_restart_button_pressed"]

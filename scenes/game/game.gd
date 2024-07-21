@@ -1,4 +1,8 @@
+class_name Game
 extends Node2D
+
+signal lost
+signal won
 
 @export var level: Level
 @export var player_stats: PlayerStats
@@ -38,16 +42,12 @@ func _on_start_fight_button_pressed() -> void:
 
 
 func _on_player_died() -> void:
-	game_ui.show_game_over()
 	item_handler.queue_free()
 	enemy_ai.queue_free()
+	lost.emit()
 
 
 func _on_enemy_died() -> void:
 	item_handler.queue_free()
 	enemy_ai.queue_free()
-
-	if level.difficulty == 5:
-		game_ui.show_game_won()
-	else:
-		print("show upgrades :)")
+	won.emit()
