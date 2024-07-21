@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://37rfek423ie5"]
+[gd_scene load_steps=23 format=3 uid="uid://37rfek423ie5"]
 
 [ext_resource type="PackedScene" uid="uid://bppfkbdcaqec" path="res://scenes/item_handler/item_handler.tscn" id="1_g2qg0"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_qvmh4"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cjudnju8uonna" path="res://scenes/enemy_ai/enemy_ai.tscn" id="7_j6eg7"]
 [ext_resource type="Texture2D" uid="uid://c2fy4hmmcaqbc" path="res://assets/background.png" id="9_yptqb"]
 [ext_resource type="Texture2D" uid="uid://ymi0rabpy8sr" path="res://assets/tilemap_packed.png" id="10_42gxs"]
+[ext_resource type="Texture2D" uid="uid://dk67nsgkwshv2" path="res://assets/pause.png" id="11_eit0i"]
+[ext_resource type="Texture2D" uid="uid://ce45nw78pb6rf" path="res://assets/pause_pressed.png" id="12_mkywg"]
+[ext_resource type="Texture2D" uid="uid://cognr0ti2gnn1" path="res://assets/pause_hover.png" id="13_shs4d"]
+[ext_resource type="Texture2D" uid="uid://dwpi7slor2ywy" path="res://assets/play.png" id="14_tfc7i"]
+[ext_resource type="Texture2D" uid="uid://bmdp37x1t7j3q" path="res://assets/play_hover.png" id="15_8cud1"]
+[ext_resource type="Texture2D" uid="uid://dyat68apveapq" path="res://assets/play_pressed.png" id="16_svna1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ei01d"]
 line_spacing = 1.0
@@ -27,6 +33,8 @@ region = Rect2(96, 128, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwyos"]
 atlas = ExtResource("10_42gxs")
 region = Rect2(7, 17, 8, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eie2v"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_qvmh4")
@@ -283,6 +291,62 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
+[node name="Pause" type="ColorRect" parent="GameUI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.439216)
+
+[node name="Label" type="Label" parent="GameUI/Pause"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_top = 24.0
+offset_right = 28.5
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "paused"
+label_settings = SubResource("LabelSettings_eie2v")
+horizontal_alignment = 1
+
+[node name="PauseButton" type="TextureButton" parent="GameUI"]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 32.0
+grow_horizontal = 2
+texture_normal = ExtResource("11_eit0i")
+texture_pressed = ExtResource("12_mkywg")
+texture_hover = ExtResource("13_shs4d")
+stretch_mode = 5
+
+[node name="PlayButton" type="TextureButton" parent="GameUI"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 32.0
+grow_horizontal = 2
+texture_normal = ExtResource("14_tfc7i")
+texture_pressed = ExtResource("16_svna1")
+texture_hover = ExtResource("15_8cud1")
+stretch_mode = 5
+
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -310,3 +374,5 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="GameUI/StartFightButton" to="GameUI" method="_on_start_fight_button_pressed"]
 [connection signal="pressed" from="GameUI/Tutorial1/MarginContainer/VBoxContainer/Tutorial1Button" to="GameUI" method="_on_tutorial_1_button_pressed"]
 [connection signal="pressed" from="GameUI/Tutorial2/MarginContainer/VBoxContainer/Tutorial2Button" to="GameUI" method="_on_tutorial_2_button_pressed"]
+[connection signal="pressed" from="GameUI/PauseButton" to="GameUI" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="GameUI/PlayButton" to="GameUI" method="_on_play_button_pressed"]

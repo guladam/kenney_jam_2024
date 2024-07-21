@@ -8,9 +8,9 @@
 script = ExtResource("1_qyn7j")
 items = Array[Resource("res://items/item_stats.gd")]([ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m"), ExtResource("3_sbt3m")])
 max_connections = 3
-max_hp = 6
 item_slots = ExtResource("1_kg5j6")
 upgrades = 0
+max_hp = 6
 health = 6
 armor = 0
 sprite_coordinates = Vector2(0, 8)

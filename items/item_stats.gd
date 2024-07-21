@@ -1,17 +1,13 @@
 class_name ItemStats
 extends Resource
 
+@export var id: String
 @export var upgrades: Array[int]
 @export var icon_coordinates: Vector2
 @export var activation_time := 1.0
 
-var id: String
 var player: Character
 var enemy: Character
-
-
-func _init() -> void:
-	id = resource_path.get_file().trim_suffix(".tres")
 
 
 func initialize() -> void:

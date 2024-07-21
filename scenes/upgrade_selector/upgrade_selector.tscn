@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://chtae2x85bj7u"]
+[gd_scene load_steps=4 format=3 uid="uid://chtae2x85bj7u"]
 
 [ext_resource type="Texture2D" uid="uid://djfoysumpemix" path="res://assets/upgrade_background.png" id="1_tvu08"]
 [ext_resource type="Script" path="res://scenes/upgrade_selector/upgrade_selector.gd" id="1_vpaxk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r6g4w"]
+shadow_color = Color(0, 0, 0, 0.607843)
 
 [node name="UpgradeSelector" type="Control"]
 layout_mode = 3
@@ -39,3 +42,21 @@ offset_top = 88.0
 offset_right = 368.0
 offset_bottom = 136.0
 theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -92.0
+offset_right = 115.5
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pick an upgrade!
+(hover over items for tooltips)"
+label_settings = SubResource("LabelSettings_r6g4w")
+horizontal_alignment = 1

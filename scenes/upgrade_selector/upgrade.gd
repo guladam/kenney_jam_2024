@@ -38,6 +38,9 @@ func _spawn_item_swap_upgrade() -> void:
 	lost_item = player_stats.items.pick_random()
 	gained_item = item_pool.pick_random()
 	
+	while gained_item.id == lost_item.id:
+		gained_item = item_pool.pick_random()
+	
 	minus.setup(UpgradeMinusPlus.Type.MINUS, lost_item)
 	plus.setup(UpgradeMinusPlus.Type.PLUS, gained_item)
 

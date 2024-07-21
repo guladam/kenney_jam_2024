@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_yubbd")
 damage = 1
+id = "hammer"
 upgrades = Array[int]([])
 icon_coordinates = Vector2(9, 9)
 activation_time = 1.0
