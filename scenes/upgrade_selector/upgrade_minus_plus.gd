@@ -7,7 +7,7 @@ const MINUS = preload("res://assets/minus.png")
 const PLUS = preload("res://assets/plus.png")
 
 @onready var icon: TextureRect = $Icon
-@onready var lost_item: TextureRect = $LostItem
+@onready var item_texture: TextureRect = $Item
 
 
 func setup(type: Type, item: ItemStats) -> void:
@@ -19,4 +19,4 @@ func setup(type: Type, item: ItemStats) -> void:
 			icon.texture = PLUS
 			icon.modulate = Color.DARK_GREEN
 	
-	lost_item.texture.region.position = item.icon_coordinates * 16
+	item_texture.texture.region.position = item.icon_coordinates * 16

@@ -3,14 +3,13 @@ extends Stats
 
 @export var items: Array[ItemStats]
 @export var max_connections: int
-@export var max_hp: int
 @export var item_slots: PackedScene
 @export var upgrades: int
 
 var connections: int : set = _set_connections
 
 
-func setup_game() -> void:
+func setup() -> void:
 	health = max_hp
 	connections = max_connections
 

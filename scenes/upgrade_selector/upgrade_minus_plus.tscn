@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://ck1pphefbsped" path="res://assets/minus.png" id="2_ur0lx"]
 [ext_resource type="Texture2D" uid="uid://ymi0rabpy8sr" path="res://assets/tilemap_packed.png" id="3_k7h07"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hgo5l"]
-resource_local_to_scene = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyn7i"]
 atlas = ExtResource("3_k7h07")
-region = Rect2(112, 128, 16, 16)
+region = Rect2(128, 128, 16, 16)
 
 [node name="MinusPlus" type="HBoxContainer"]
 theme_override_constants/separation = 0
@@ -15,16 +14,15 @@ alignment = 1
 script = ExtResource("1_10ln0")
 
 [node name="Icon" type="TextureRect" parent="."]
-self_modulate = Color(0.75339, 2.38247e-06, 5.77569e-07, 1)
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("2_ur0lx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LostItem" type="TextureRect" parent="."]
+[node name="Item" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hgo5l")
+texture = SubResource("AtlasTexture_nyn7i")
 expand_mode = 1
 stretch_mode = 5

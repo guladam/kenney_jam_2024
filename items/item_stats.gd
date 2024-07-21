@@ -5,13 +5,21 @@ extends Resource
 @export var icon_coordinates: Vector2
 @export var activation_time := 1.0
 
+var id: String
 var player: Character
 var enemy: Character
+
+
+func _init() -> void:
+	id = resource_path.get_file().trim_suffix(".tres")
 
 
 func initialize() -> void:
 	player = _get_player()
 	enemy = _get_enemy()
+	
+	player.tree_exited.connect(func(): self.player = null)
+	enemy.tree_exited.connect(func(): self.enemy = null)
 
 
 func activate() -> void:

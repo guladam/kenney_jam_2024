@@ -24,8 +24,9 @@ func start_game() -> void:
 	enemy.stats = level.enemy
 	enemy_ai.enemy_stats = level.enemy
 	game_ui.setup_ui(player_stats, level.enemy)
-	player_stats.setup_game()
 	item_handler.spawn_items()
+	player_stats.setup()
+	level.enemy.setup()
 	
 	if level.tutorial:
 		game_ui.show_tutorial()

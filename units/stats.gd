@@ -4,10 +4,15 @@ extends Resource
 signal stats_changed
 signal health_depleted
 
+@export var max_hp: int
 @export var health: int : set = _set_health
 @export var armor: int : set = _set_armor
 @export var sprite_coordinates: Vector2
 @export var flip_h: bool
+
+
+func setup() -> void:
+	pass
 
 
 func take_damage(damage: int) -> void:

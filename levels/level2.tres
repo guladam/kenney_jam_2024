@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://dkm2dr374i3q4"]
+
+[ext_resource type="Resource" uid="uid://cxlvkynww2bd5" path="res://units/ghost/ghost_stats.tres" id="1_bb01w"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_iycy8"]
+
+[resource]
+script = ExtResource("1_iycy8")
+difficulty = 2
+enemy = ExtResource("1_bb01w")
+tutorial = false

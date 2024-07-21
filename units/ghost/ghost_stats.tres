@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=5 format=3 uid="uid://cxlvkynww2bd5"]
+
+[ext_resource type="Resource" uid="uid://fg4k74vwwiln" path="res://items/rat_attack.tres" id="1_csrmu"]
+[ext_resource type="Resource" uid="uid://dkllk6n1iw7q6" path="res://items/rat_attack_big.tres" id="2_phk62"]
+[ext_resource type="Resource" uid="uid://dkjydsyyefn27" path="res://items/rat_block.tres" id="3_cu3ga"]
+[ext_resource type="Script" path="res://units/enemy_stats.gd" id="4_imauc"]
+
+[resource]
+script = ExtResource("4_imauc")
+items = Array[Resource("res://items/item_stats.gd")]([ExtResource("1_csrmu"), ExtResource("2_phk62"), ExtResource("3_cu3ga")])
+cooldown_between_items = 1.0
+max_hp = 5
+health = 5
+armor = 0
+sprite_coordinates = Vector2(0, 9)
+flip_h = false

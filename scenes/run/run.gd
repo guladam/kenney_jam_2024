@@ -31,6 +31,12 @@ func _spawn_level() -> void:
 	current_level.add_child(game)
 
 
+func _show_upgrade_selector() -> void:
+	var old_level := current_level.get_child(0)
+	old_level.queue_free()
+	upgrade_selector.spawn_upgrades()
+
+
 func _on_level_lost() -> void:
 	level_over_timer.start()
 	level_over_timer.timeout.connect(game_over.show, CONNECT_ONE_SHOT)
@@ -43,7 +49,7 @@ func _on_level_won() -> void:
 	if level_index == 5:
 		callback = game_won.show
 	else:
-		callback = upgrade_selector.spawn_upgrades
+		callback = _show_upgrade_selector
 		
 	level_over_timer.timeout.connect(callback, CONNECT_ONE_SHOT)
 
@@ -57,7 +63,5 @@ func _on_game_over_restart_button_pressed() -> void:
 	
 
 func _on_upgrade_selected() -> void:
-	var old_level := current_level.get_child(0)
-	old_level.queue_free()
 	level_index += 1
 	_spawn_level()

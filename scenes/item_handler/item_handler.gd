@@ -18,9 +18,8 @@ func spawn_items() -> void:
 		item.connected_to_item.connect(_on_item_connected_to_item)
 		item.disconnected_from_item.connect(_on_item_disconnected_from_item)
 		add_child(item)
+		player_stats.items[i].initialize()
 		item.item_stats = player_stats.items[i]
-		print("initialized?")
-		item.item_stats.initialize()
 		i += 1
 	
 	instance.queue_free()

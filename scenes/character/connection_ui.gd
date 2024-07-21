@@ -6,11 +6,6 @@ extends HBoxContainer
 @onready var label: Label = $Label
 
 
-func _ready() -> void:
-	if player_stats:
-		_on_player_stats_changed()
-
-
 func _set_player_stats(value: PlayerStats) -> void:
 	if player_stats:
 		player_stats.stats_changed.disconnect(_on_player_stats_changed)
