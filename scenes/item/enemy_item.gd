@@ -1,11 +1,12 @@
 class_name EnemyItem
-extends Node2D
+extends Area2D
 
 signal item_activated
 
 @export var item_stats: ItemStats : set = _set_item_stats
 
 @onready var icon: Sprite2D = %Icon
+@onready var tooltip_position: Marker2D = %TooltipPosition
 @onready var progress_bar: ProgressBar = %ProgressBar
 @onready var item_timer: Timer = $ItemTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -36,3 +37,11 @@ func _on_item_timer_timeout() -> void:
 	animation_player.play("RESET")
 	progress_bar.hide()
 	item_activated.emit()
+
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event.is_action_pressed("right_mouse"):
+		if ItemTooltip.current_item != item_stats:
+			ItemTooltip.show_tooltip(tooltip_position.global_position, item_stats)
+		else:
+			ItemTooltip.hide_tooltip()

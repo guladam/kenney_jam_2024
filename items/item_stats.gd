@@ -5,6 +5,7 @@ extends Resource
 @export var upgrades: Array[int]
 @export var icon_coordinates: Vector2
 @export var activation_time := 1.0
+@export_multiline var tooltip: String
 
 var player: Character
 var enemy: Character

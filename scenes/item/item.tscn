@@ -156,6 +156,10 @@ position = Vector2(-6, 6)
 rotation = 4.71239
 texture = SubResource("AtlasTexture_reg73")
 
+[node name="TooltipPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(20, 0)
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 visible = false

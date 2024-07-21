@@ -14,6 +14,7 @@ static var dragging: Item = null
 @onready var line_arrow: CanvasGroup = %LineArrow
 @onready var line_connector: Area2D = %LineConnector
 @onready var start_icon: Node2D = %StartIcon
+@onready var tooltip_position: Marker2D = %TooltipPosition
 @onready var progress_bar: ProgressBar = %ProgressBar
 @onready var item_timer: Timer = $ItemTimer
 @onready var spark_timer: Timer = $SparkTimer
@@ -99,6 +100,12 @@ func _update_start_point() -> void:
 
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event.is_action_pressed("right_mouse"):
+		if ItemTooltip.current_item != item_stats:
+			ItemTooltip.show_tooltip(tooltip_position.global_position, item_stats)
+		else:
+			ItemTooltip.hide_tooltip()
+	
 	if not enabled:
 		return
 
