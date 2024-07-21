@@ -8,9 +8,9 @@
 [resource]
 script = ExtResource("1_c71df")
 items = Array[Resource("res://items/item_stats.gd")]([ExtResource("1_0ou00"), ExtResource("2_a8u52"), ExtResource("3_gp1u4")])
-cooldown_between_items = 1.0
-max_hp = 3
-health = 3
+cooldown_between_items = 1.5
+max_hp = 4
+health = 4
 armor = 0
 sprite_coordinates = Vector2(4, 10)
 flip_h = false

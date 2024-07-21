@@ -7,4 +7,4 @@
 script = ExtResource("1_q200u")
 difficulty = 1
 enemy = ExtResource("1_5jlrc")
-tutorial = false
+tutorial = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjr34ihwulf61"]
+[gd_scene load_steps=7 format=3 uid="uid://cjr34ihwulf61"]
 
 [ext_resource type="Script" path="res://scenes/upgrade_selector/upgrade.gd" id="1_chwxq"]
 [ext_resource type="Resource" uid="uid://djwrllg3q4rxo" path="res://items/warrior_axe.tres" id="2_lj6q0"]
 [ext_resource type="Resource" uid="uid://dpmv0sxnjigk1" path="res://items/warrior_hammer.tres" id="3_jbqd4"]
 [ext_resource type="Resource" uid="uid://b3ahffjwod1cc" path="res://items/warrior_shield.tres" id="4_sbdpn"]
+[ext_resource type="Resource" uid="uid://yqcnxhkjad2u" path="res://items/warrior_leech.tres" id="5_mqagk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vflm2"]
 bg_color = Color(0, 0, 0, 0.384314)
@@ -19,7 +20,7 @@ offset_bottom = 48.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_vflm2")
 script = ExtResource("1_chwxq")
-item_pool = Array[Resource("res://items/item_stats.gd")]([ExtResource("2_lj6q0"), ExtResource("3_jbqd4"), ExtResource("4_sbdpn")])
+item_pool = Array[Resource("res://items/item_stats.gd")]([ExtResource("2_lj6q0"), ExtResource("3_jbqd4"), ExtResource("4_sbdpn"), ExtResource("5_mqagk"), ExtResource("4_sbdpn")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

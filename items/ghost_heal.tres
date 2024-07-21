@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cg4hmmpwoyvhh"]
+
+[ext_resource type="Script" path="res://items/scripts/enemy_heal.gd" id="1_qncn8"]
+
+[resource]
+script = ExtResource("1_qncn8")
+amount = 1
+id = "ghost_heal"
+upgrades = Array[int]([])
+icon_coordinates = Vector2(6, 9)
+activation_time = 1.25
+tooltip = "+1 HP
+UseTime: 1.25"

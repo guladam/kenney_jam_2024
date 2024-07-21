@@ -9,3 +9,5 @@ id = "hammer"
 upgrades = Array[int]([])
 icon_coordinates = Vector2(9, 9)
 activation_time = 1.0
+tooltip = "1 ATK
+UseTime: 1s"

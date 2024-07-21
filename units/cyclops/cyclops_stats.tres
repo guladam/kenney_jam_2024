@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://6kvl3oljafbb"]
+
+[ext_resource type="Resource" uid="uid://cl6cf4m3lglgj" path="res://items/cyclops_attack.tres" id="1_fl2ua"]
+[ext_resource type="Script" path="res://units/enemy_stats.gd" id="1_gqejd"]
+[ext_resource type="Resource" uid="uid://cuwg2c4yunhd7" path="res://items/cyclops_block.tres" id="2_w8r0c"]
+
+[resource]
+script = ExtResource("1_gqejd")
+items = Array[Resource("res://items/item_stats.gd")]([ExtResource("1_fl2ua"), ExtResource("2_w8r0c")])
+cooldown_between_items = 2.0
+max_hp = 10
+health = 10
+armor = 0
+sprite_coordinates = Vector2(1, 9)
+flip_h = false

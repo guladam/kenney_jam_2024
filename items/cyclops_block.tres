@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cuwg2c4yunhd7"]
+
+[ext_resource type="Script" path="res://items/scripts/enemy_armor.gd" id="1_fkapg"]
+
+[resource]
+script = ExtResource("1_fkapg")
+amount = 3
+id = ""
+upgrades = Array[int]([])
+icon_coordinates = Vector2(6, 8)
+activation_time = 3.0
+tooltip = "3 BLK
+UseTime: 3s"

@@ -46,7 +46,7 @@ func _on_level_won() -> void:
 	var callback: Callable
 	level_over_timer.start()
 	
-	if level_index == 5:
+	if level_index == 3:
 		callback = game_won.show
 	else:
 		callback = _show_upgrade_selector

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://yqcnxhkjad2u"]
+
+[ext_resource type="Script" path="res://items/scripts/player_leech.gd" id="1_jslth"]
+
+[resource]
+script = ExtResource("1_jslth")
+damage = 1
+heal = 1
+id = "warrior_leech"
+upgrades = Array[int]([])
+icon_coordinates = Vector2(9, 10)
+activation_time = 1.5
+tooltip = "1 ATK + 1 HP
+UseTime: 1.5s"

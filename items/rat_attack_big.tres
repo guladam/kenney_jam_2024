@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_ogwyp")
 damage = 2
+id = ""
 upgrades = Array[int]([])
 icon_coordinates = Vector2(8, 8)
 activation_time = 1.5
+tooltip = "2 ATK
+UseTime: 1.5s"

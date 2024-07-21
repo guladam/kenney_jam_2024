@@ -14,7 +14,7 @@ signal item_activated
 
 func activate() -> void:
 	item_timer.start()
-	var tween := create_tween()
+	var tween := create_tween().set_pause_mode(Tween.TWEEN_PAUSE_STOP)
 	progress_bar.value = 0
 	progress_bar.show()
 	tween.tween_property(progress_bar, "value", 100, item_timer.wait_time)

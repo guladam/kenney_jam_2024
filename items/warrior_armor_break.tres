@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bg6xhqanpyca3"]
+
+[ext_resource type="Script" path="res://items/scripts/player_armor_breaker.gd" id="1_7uvfy"]
+
+[resource]
+script = ExtResource("1_7uvfy")
+id = "armor_break"
+upgrades = Array[int]([])
+icon_coordinates = Vector2(9, 8)
+activation_time = 2.0
+tooltip = "Enemy BLK => 0
+UseTime: 2s"

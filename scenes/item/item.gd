@@ -4,6 +4,8 @@ extends Area2D
 signal connected_to_item
 signal disconnected_from_item
 
+const CONNECT = preload("res://assets/connect.ogg")
+
 static var connections: Dictionary
 static var dragging: Item = null
 
@@ -26,6 +28,9 @@ var connected_item: Item
 
 
 func _process(_delta: float) -> void:
+	if get_tree().paused:
+		return
+
 	if dragging and dragging != self:
 		return
 	
@@ -40,7 +45,7 @@ func _process(_delta: float) -> void:
 
 func activate() -> void:
 	item_timer.start()
-	var tween := create_tween()
+	var tween := create_tween().set_pause_mode(Tween.TWEEN_PAUSE_STOP)
 	progress_bar.value = 0
 	progress_bar.show()
 	tween.tween_property(progress_bar, "value", 100, item_timer.wait_time)
@@ -75,6 +80,7 @@ func _connect(item: Item) -> void:
 	dragging = null
 	_update_start_point()
 	connected_to_item.emit()
+	SFXPlayer.play(CONNECT)
 
 
 func _disconnect() -> void:

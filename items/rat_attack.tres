@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_sdtfn")
 damage = 1
+id = ""
 upgrades = Array[int]([])
 icon_coordinates = Vector2(7, 8)
 activation_time = 0.75
+tooltip = "1 ATK
+UseTime: 0.75s"

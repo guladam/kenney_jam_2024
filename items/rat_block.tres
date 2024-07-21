@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_c88lj")
 amount = 1
+id = ""
 upgrades = Array[int]([])
 icon_coordinates = Vector2(5, 8)
 activation_time = 0.5
+tooltip = "1 BLK
+UseTime: 0.5sq"

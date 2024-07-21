@@ -68,7 +68,7 @@ func _apply_upgrade() -> void:
 			player_stats.items.erase(lost_item)
 			player_stats.items.append(gained_item)
 		Type.PLUS_MAX_HP:
-			player_stats.max_hp += 3
+			player_stats.max_hp += 2
 		Type.PLUS_CONNECTION:
 			player_stats.max_connections += 1
 		

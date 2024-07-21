@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr4r0ad7f3bp5"]
+[gd_scene load_steps=9 format=3 uid="uid://dr4r0ad7f3bp5"]
 
 [ext_resource type="Script" path="res://scenes/run/run.gd" id="1_jvo1u"]
 [ext_resource type="PackedScene" uid="uid://dwpx8ydhy46ac" path="res://scenes/game_over/game_over.tscn" id="1_v0tsm"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b8kpvx46o6ocw" path="res://scenes/game_won/game_won.tscn" id="2_flyma"]
 [ext_resource type="Resource" uid="uid://dctn7056bqp5x" path="res://units/warrior/warrior_stats.tres" id="3_ni3sm"]
 [ext_resource type="Resource" uid="uid://dkm2dr374i3q4" path="res://levels/level2.tres" id="3_wdhym"]
+[ext_resource type="Resource" uid="uid://g2of546y4k3t" path="res://levels/level3.tres" id="4_vfmh3"]
 [ext_resource type="PackedScene" uid="uid://chtae2x85bj7u" path="res://scenes/upgrade_selector/upgrade_selector.tscn" id="6_815ls"]
 
 [node name="Run" type="Node2D"]
 script = ExtResource("1_jvo1u")
-levels = Array[Resource("res://levels/level.gd")]([ExtResource("2_665m8"), ExtResource("3_wdhym")])
+levels = Array[Resource("res://levels/level.gd")]([ExtResource("2_665m8"), ExtResource("3_wdhym"), ExtResource("4_vfmh3")])
 starter_player_stats = ExtResource("3_ni3sm")
 
 [node name="CurrentLevel" type="Node2D" parent="."]

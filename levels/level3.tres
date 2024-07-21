@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://g2of546y4k3t"]
+
+[ext_resource type="Resource" uid="uid://6kvl3oljafbb" path="res://units/cyclops/cyclops_stats.tres" id="1_73vdc"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_yhg12"]
+
+[resource]
+script = ExtResource("1_yhg12")
+difficulty = 3
+enemy = ExtResource("1_73vdc")
+tutorial = false

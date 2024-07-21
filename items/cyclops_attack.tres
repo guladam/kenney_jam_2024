@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cl6cf4m3lglgj"]
+
+[ext_resource type="Script" path="res://items/scripts/enemy_attack.gd" id="1_chn5r"]
+
+[resource]
+script = ExtResource("1_chn5r")
+damage = 4
+id = "cyclops_attack"
+upgrades = Array[int]([])
+icon_coordinates = Vector2(10, 6)
+activation_time = 2.5
+tooltip = "4 ATK
+UseTime: 2.5s"

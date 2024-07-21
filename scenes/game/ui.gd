@@ -1,6 +1,8 @@
 class_name GameUI
 extends CanvasLayer
 
+const MENU = "res://scenes/menu/menu.tscn"
+
 @export var player_stats: PlayerStats
 
 @onready var player_stats_ui: StatsUI = %PlayerStats
@@ -57,3 +59,7 @@ func _on_play_button_pressed() -> void:
 	pause_button.show()
 	play_button.hide()
 	get_tree().paused = false
+
+
+func _on_main_menu_button_pressed() -> void:
+	SceneTransition.change_to_scene(MENU)

@@ -8,4 +8,6 @@ damage = 3
 id = "axe"
 upgrades = Array[int]([])
 icon_coordinates = Vector2(10, 9)
-activation_time = 2.5
+activation_time = 2.0
+tooltip = "3 ATK
+UseTime: 2s"

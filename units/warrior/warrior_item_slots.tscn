@@ -1,21 +1,28 @@
-[gd_scene format=3 uid="uid://b42u2ebc5cn6g"]
+[gd_scene load_steps=2 format=3 uid="uid://b42u2ebc5cn6g"]
+
+[ext_resource type="Texture2D" uid="uid://c2fy4hmmcaqbc" path="res://assets/background.png" id="1_h1pey"]
 
 [node name="WarriorItems" type="Node2D"]
 
 [node name="ItemSlot1" type="Marker2D" parent="."]
-position = Vector2(32, 34)
+position = Vector2(47, 39)
 
 [node name="ItemSlot2" type="Marker2D" parent="."]
-position = Vector2(96, 34)
+position = Vector2(111, 39)
 
 [node name="ItemSlot3" type="Marker2D" parent="."]
-position = Vector2(144, 72)
+position = Vector2(159, 77)
 
 [node name="ItemSlot4" type="Marker2D" parent="."]
-position = Vector2(144, 136)
+position = Vector2(159, 141)
 
 [node name="ItemSlot5" type="Marker2D" parent="."]
-position = Vector2(96, 174)
+position = Vector2(111, 179)
 
 [node name="ItemSlot6" type="Marker2D" parent="."]
-position = Vector2(32, 174)
+position = Vector2(47, 179)
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(192, 106)
+texture = ExtResource("1_h1pey")
