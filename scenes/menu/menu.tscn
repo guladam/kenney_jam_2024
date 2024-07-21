@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj3rs7apvahso"]
+[gd_scene load_steps=8 format=3 uid="uid://cj3rs7apvahso"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_t57w1"]
+[ext_resource type="Texture2D" uid="uid://c2fy4hmmcaqbc" path="res://assets/background.png" id="2_e701f"]
+[ext_resource type="Texture2D" uid="uid://ymi0rabpy8sr" path="res://assets/tilemap_packed.png" id="3_1ghcm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndfih"]
+atlas = ExtResource("3_1ghcm")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbpxg"]
+atlas = ExtResource("3_1ghcm")
+region = Rect2(0, 144, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_20kir"]
+font_size = 28
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.541176)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x5fen"]
+font_size = 12
+font_color = Color(0.290369, 0.666649, 0.990476, 1)
+shadow_color = Color(0, 0, 0, 0.466667)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,16 +29,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_t57w1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.101167, 0.177082, 0.18611, 1)
+mouse_filter = 2
+texture = ExtResource("2_e701f")
+flip_h = true
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -27,10 +50,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = 5.0
-offset_right = -40.0
-offset_bottom = 77.0
+offset_left = -168.0
+offset_top = 20.0
+offset_right = -48.0
+offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -47,5 +70,75 @@ custom_minimum_size = Vector2(120, 30)
 layout_mode = 2
 text = "Quit"
 
+[node name="Character1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 80.0
+offset_bottom = 120.0
+texture = SubResource("AtlasTexture_ndfih")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Character2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 72.0
+offset_right = 144.0
+offset_bottom = 120.0
+texture = SubResource("AtlasTexture_hbpxg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -92.0
+offset_right = 154.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GameTitle"
+label_settings = SubResource("LabelSettings_20kir")
+
+[node name="PacksUsed" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -44.0
+offset_right = 155.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made for Kenney Jam 2024
+Packs used:
+- Tiny Dungeon"
+
+[node name="YouTubeChannel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = 70.0
+offset_right = 179.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+text = "Check out my YouTube channel"
+label_settings = SubResource("LabelSettings_x5fen")
+
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="gui_input" from="YouTubeChannel" to="." method="_on_youtube_channel_gui_input"]

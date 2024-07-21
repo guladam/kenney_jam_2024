@@ -11,6 +11,7 @@ static var dragging: Item = null
 
 @onready var icon: Sprite2D = %Icon
 @onready var connection_line: Line2D = %ConnectionLine
+@onready var line_arrow: CanvasGroup = %LineArrow
 @onready var line_connector: Area2D = %LineConnector
 @onready var start_icon: Node2D = %StartIcon
 @onready var progress_bar: ProgressBar = %ProgressBar
@@ -67,6 +68,9 @@ func _connect(item: Item) -> void:
 	connections[self] = item
 	connected_item = item
 	connection_line.points[1] = to_local(item.global_position)
+	line_arrow.position = to_local(item.global_position)
+	line_arrow.rotation = (item.global_position - global_position).angle()
+	line_arrow.show()
 	dragging = null
 	_update_start_point()
 	connected_to_item.emit()
@@ -77,6 +81,7 @@ func _disconnect() -> void:
 	connection_line.clear_points()
 	connection_line.add_point(Vector2.ZERO)
 	connection_line.add_point(global_position)
+	line_arrow.hide()
 	if connected_item:
 		connected_item = null
 		_update_start_point()
